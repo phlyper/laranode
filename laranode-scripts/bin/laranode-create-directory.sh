@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 # Check if at least two arguments are provided (system user and path)
 if [ $# -lt 2 ]; then
   echo "Usage: $0 {fullPathToCreate} {system_user}"
@@ -22,3 +24,5 @@ find /home/$SYSTEM_USER/domains -type f -exec chmod 660 {} \;
 chown -R $SYSTEM_USER:$SYSTEM_USER /home/$SYSTEM_USER
 
 echo "Directory created successfully."
+
+set +x
